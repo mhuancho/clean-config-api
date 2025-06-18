@@ -3,8 +3,6 @@ server:
   servlet:
     context-path: /clean-sueldo-beneficio
 
-spring:
-  datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5632/clean_rrhh_db
     username: postgres17
