@@ -4,8 +4,6 @@ server:
     context-path: /clean-sueldo-beneficio
 
 spring:
-  application:
-    name: clean-sueldo-beneficio
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5632/clean_rrhh_db
@@ -20,6 +18,7 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: true
+
   web:
     resources:
       add-mappings: false
