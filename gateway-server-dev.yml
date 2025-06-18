@@ -1,0 +1,65 @@
+server:
+  port: 8098
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: gateway-server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/cleanapp
+  cloud:
+    gateway:
+      routes:
+        - id: m1-service
+          uri: http://localhost:4600/clean-contratacion-api
+          predicates:
+            - Path=/m1/**
+          filters:
+            - RewritePath=/m1/(?<x>.*), /$\{x}
+        - id: m2-service
+          #uri: lb://micro-cr
+          uri: http://localhost:4500/clean-gestion-api
+          predicates:
+            - Path=/m2/**
+          filters:
+            - RewritePath=/m2/(?<x>.*), /$\{x}
+
+        - id: translate-service
+          #uri: lb://micro-cr
+          uri: http://localhost:8081/clean-multi-idioma
+          predicates:
+            - Path=/translate/**
+          filters:
+            - RewritePath=/translate/(?<x>.*), /$\{x}
+
+        - id: gestion-user-service
+          #uri: lb://micro-cr
+          uri: http://localhost:4503/clean-gestion-usuario-api
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<x>.*), /$\{x}
+
+        - id: asistencia-horario
+          uri: http://localhost:4601/clean-asistencia-horario-api
+          predicates:
+            - Path=/asistencia/**
+          filters:
+            - RewritePath=/asistencia/(?<x>.*), /$\{x}
+
+        - id: sueldo-beneficio
+          uri: http://localhost:4602/clean-sueldo-beneficio
+          predicates:
+            - Path=/sueldo/**
+          filters:
+            - RewritePath=/sueldo/(?<x>.*), /$\{x}
