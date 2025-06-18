@@ -3,6 +3,7 @@ server:
   servlet:
     context-path: /clean-sueldo-beneficio
 
+spring:
   application:
     name: clean-sueldo-beneficio
   datasource:
