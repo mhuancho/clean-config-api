@@ -27,15 +27,16 @@ server:
           default:
             connectTimeout: 5000
             readTimeout: 5000
+realm:
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/cleanapp
-
-constants:
-  service:
-    url: http://localhost:8098/translate/clean-multi-idioma
+translate:
+  constants:
+    service:
+      url: http://localhost:8098/translate/clean-multi-idioma
 
 management:
   metrics:
