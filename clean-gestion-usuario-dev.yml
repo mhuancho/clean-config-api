@@ -2,11 +2,10 @@ server:
   port: 4503
   servlet:
     context-path: /clean-gestion-usuario-api
-  address: 0.0.0.0
 
 spring:
   application:
-    name: clean-gestion-usuario
+    name: clean-sueldo-beneficio
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5632/clean_rrhh_db
