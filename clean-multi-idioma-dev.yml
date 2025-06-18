@@ -1,0 +1,17 @@
+
+server:
+  port: 8081
+  servlet:
+    context-path: /clean-multi-idioma
+spring:
+  application:
+    name: clean-multi-idioma
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/constantsdb
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/cleanapp
