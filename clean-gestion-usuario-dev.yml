@@ -50,6 +50,10 @@ management:
       exposure:
         include: info,health,prometheus
 
+springdoc:
+  api-docs:
+    enabled: true
+    
 logging:
   level:
     org.springframework.web: DEBUG
